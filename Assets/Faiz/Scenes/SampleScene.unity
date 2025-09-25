@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3b2c0afff51064b89c32c6fe036248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultZoom: 10
+  defaultZoom: 1
   defaultHorizontalRotation: 0
   defaultVerticalRotation: 20
   target: {fileID: 1962422633}
