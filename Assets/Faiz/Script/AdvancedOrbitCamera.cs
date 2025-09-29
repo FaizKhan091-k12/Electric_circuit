@@ -5,9 +5,9 @@ public class AdvancedOrbitCamera : MonoBehaviour
     public static AdvancedOrbitCamera instance;
 
     [Header("Initial View")]
-    [SerializeField] private float defaultZoom = 10f;
-    [SerializeField] private float defaultHorizontalRotation = 0f;
-    [SerializeField] private float defaultVerticalRotation = 20f;
+    [SerializeField] public float defaultZoom = 10f;
+    [SerializeField] public  float defaultHorizontalRotation = 0f;
+    [SerializeField] public float defaultVerticalRotation = 20f;
 
     [Header("Target Settings")]
     [SerializeField] private Transform target;
