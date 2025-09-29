@@ -43,7 +43,10 @@ public class OutlinePulseController : MonoBehaviour
     void Awake()
     {
         if (targetOutline == null)
+        {
             targetOutline = GetComponent<Outline>();
+            targetOutline.OutlineWidth = 0f;
+        }
 
         if (targetOutline == null)
             Debug.LogWarning($"OutlinePulseController on '{gameObject.name}' has no Outline assigned.");
@@ -57,35 +60,35 @@ public class OutlinePulseController : MonoBehaviour
             Play();
     }
 
-    void OnValidate()
-    {
-        // clamp widths consistent so inspector changes take effect immediately
-        if (minWidth > maxWidth)
-        {
-            float tmp = minWidth;
-            minWidth = maxWidth;
-            maxWidth = tmp;
-        }
+    // void OnValidate()
+    // {
+    //     // clamp widths consistent so inspector changes take effect immediately
+    //     if (minWidth > maxWidth)
+    //     {
+    //         float tmp = minWidth;
+    //         minWidth = maxWidth;
+    //         maxWidth = tmp;
+    //     }
 
-        if (targetOutline == null)
-            targetOutline = GetComponent<Outline>();
+    //     if (targetOutline == null)
+    //         targetOutline = GetComponent<Outline>();
 
-        // update applied appearance in editor
-        if (Application.isPlaying)
-        {
-            ApplyAppearance();
-        }
-        else
-        {
-            // in editor mode when changing values, try to update Outline so you see preview while editing
-            if (targetOutline != null)
-            {
-                targetOutline.OutlineColor = outlineColor;
-                targetOutline.OutlineMode = outlineMode;
-                targetOutline.OutlineWidth = minWidth; // show min by default
-            }
-        }
-    }
+    //     // update applied appearance in editor
+    //     if (Application.isPlaying)
+    //     {
+    //         ApplyAppearance();
+    //     }
+    //     else
+    //     {
+    //         // in editor mode when changing values, try to update Outline so you see preview while editing
+    //         if (targetOutline != null)
+    //         {
+    //             targetOutline.OutlineColor = outlineColor;
+    //             targetOutline.OutlineMode = outlineMode;
+    //             targetOutline.OutlineWidth = minWidth; // show min by default
+    //         }
+    //     }
+    // }
 
     /// <summary>
     /// Apply static appearance values (color, mode) immediately.
